@@ -1,5 +1,4 @@
 import js from '@eslint/js';
-import globals from 'globals';
 
 export default [
   js.configs.recommended,
@@ -9,7 +8,17 @@ export default [
       ecmaVersion: 'latest',
       sourceType: 'module',
       globals: {
-        ...globals.node,
+        console: 'readonly',
+        process: 'readonly',
+        __dirname: 'readonly',
+        __filename: 'readonly',
+        module: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        buffer: 'readonly',
+        URL: 'readonly',
       },
     },
     rules: {
@@ -25,6 +34,6 @@ export default [
     },
   },
   {
-    ignores: ['node_modules/**', 'dist/**', 'coverage/**'],
+    ignores: ['node_modules/**', 'dist/**', 'logs/**', 'drizzle/**', 'coverage/**'],
   },
 ];
