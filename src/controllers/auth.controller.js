@@ -46,7 +46,7 @@ export const signup = async (req, res, next) => {
 
     // Handle specific error cases before passing to the next middleware
     if (e.message === 'User with this email already exists') {
-      return res.status(409).json({ error: 'Email already exists' });
+      return res.status(409).json({ e: 'Email already exists' });
     }
     next(e);
   }

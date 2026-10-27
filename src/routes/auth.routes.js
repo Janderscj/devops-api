@@ -12,6 +12,7 @@ router.post('/sign-in', (req, res) => {
   res.send('POST /api/auth/sign-in response');
 });
 
+// Route for user sign-out
 router.post('/sign-out', (req, res) => {
   res.send('POST /api/auth/sign-out response');
 });

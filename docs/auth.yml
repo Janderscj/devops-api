@@ -21,6 +21,7 @@ paths:
               required:
                 - email
                 - password
+                - name
 
               properties:
                 email:
@@ -41,6 +42,9 @@ paths:
 
         '400':
           description: Missing required fields
+
+        '409':
+          description: Email already exists
 
   /api/auth/sign-in:
     post:
