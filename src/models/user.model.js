@@ -1,5 +1,6 @@
 import { pgTable, serial, varchar, timestamp } from 'drizzle-orm/pg-core';
 
+// User model definition for the database using Drizzle ORM
 export const users = pgTable('users', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),

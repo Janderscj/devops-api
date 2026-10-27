@@ -33,6 +33,7 @@ app.get('/api', (req, res) => {
 
 app.use('/api/auth', authroutes);
 
+// Swagger API documentation route
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 export default app;

@@ -1,0 +1,9 @@
+ErrorResponse:
+  type: object
+
+  properties:
+    error:
+      type: string
+
+  example:
+    error: Missing required fields

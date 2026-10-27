@@ -1,0 +1,17 @@
+SignUpRequest:
+  type: object
+
+  required:
+    - name
+    - email
+    - password
+
+  properties:
+    email:
+      type: string
+
+    name:
+      type: string
+
+    password:
+      type: string

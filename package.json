@@ -31,6 +31,7 @@
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
     "bcrypt": "^6.0.0",
+    "colors": "^1.4.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^18.0.9",
@@ -46,7 +47,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "drizzle-kit": "^0.18.1",
+    "drizzle-kit": "^0.31.11",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.7",

@@ -1,0 +1,92 @@
+tags:
+  - name: Auth
+    description: Authentication routes
+
+paths:
+  /api/auth/sign-up:
+    post:
+      summary: Sign up a new user
+
+      tags:
+        - Auth
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+            schema:
+              type: object
+
+              required:
+                - email
+                - password
+
+              properties:
+                email:
+                  type: string
+                  example: josh@example.com
+
+                name:
+                  type: string
+                  example: Josh Doe
+
+                password:
+                  type: string
+                  example: Password123!
+
+      responses:
+        '201':
+          description: Successful sign up
+
+        '400':
+          description: Missing required fields
+
+  /api/auth/sign-in:
+    post:
+      summary: Sign in an existing user
+
+      tags:
+        - Auth
+
+      requestBody:
+        required: true
+
+        content:
+          application/json:
+            schema:
+              type: object
+
+              required:
+                - email
+                - password
+
+              properties:
+                email:
+                  type: string
+                  example: josh@example.com
+
+                password:
+                  type: string
+                  example: Password123!
+
+      responses:
+        '200':
+          description: Successful sign in
+
+        '400':
+          description: Validation failed
+
+  /api/auth/sign-out:
+    post:
+      summary: Sign out the current user
+
+      tags:
+        - Auth
+
+      responses:
+        '200':
+          description: Successful sign out
+
+        '400':
+          description: Sign out failed

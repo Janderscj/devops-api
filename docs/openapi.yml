@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: DevOps API
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+tags:
+  - name: Auth
+    description: Authentication routes
+
+docs:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          example: '12345'
+        name:
+          type: string
+          example: 'John Doe'
+        email:
+          type: string
+          format: email
+          example: 'john.doe@example.com'
+
+      signUpRequest:
+        type: object
+
+        required:
+          - name
+          - email
+          - password
+
+        properties:
+          name:
+            type: string
+            example: 'John Doe'
+          email:
+            type: string
+            format: email
+            example: 'john.doe@example.com'
+          password:
+            type: string
+            format: password
+            example: 'P@ssw0rd'
+
+      ErrorResponse:
+        type: object
+        properties:
+          message:
+            type: string
+            example: 'An error occurred'
+          code:
+            type: integer
+            example: 400
