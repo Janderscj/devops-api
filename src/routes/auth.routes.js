@@ -1,5 +1,5 @@
 import express from 'express';
-import { signup } from '#controllers/auth.controller.js';
+import { signup, signIn, signOut } from '#controllers/auth.controller.js';
 
 // Routes for user authentication (sign-up, sign-in, sign-out)
 const router = express.Router();
@@ -8,13 +8,9 @@ const router = express.Router();
 router.post('/sign-up', signup);
 
 // Route for user sign-in
-router.post('/sign-in', (req, res) => {
-  res.send('POST /api/auth/sign-in response');
-});
+router.post('/sign-in', signIn);
 
 // Route for user sign-out
-router.post('/sign-out', (req, res) => {
-  res.send('POST /api/auth/sign-out response');
-});
+router.post('/sign-out', signOut);
 
 export default router;
