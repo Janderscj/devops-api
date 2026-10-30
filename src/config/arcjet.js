@@ -9,7 +9,7 @@ const aj = arcjet({
     shield({ mode: 'LIVE' }),
     // Create a bot detection rule
     detectBot({
-      mode: 'LIVE', // Blocks requests. Use "DRY_RUN" to log only
+      mode: 'DRY_RUN', // Blocks requests. Use "DRY_RUN" to log only
       // Block all bots except the following
       allow: [
         'CATEGORY:SEARCH_ENGINE', // Google, Bing, etc
@@ -18,11 +18,11 @@ const aj = arcjet({
     }),
     // Create a token bucket rate limit. Other algorithms are supported.
     slidingWindow({
-      mode: 'LIVE',
-      max: 10, // Maximum 10 requests per interval
+      mode: 'DRY_RUN',
+      max: 100, // Maximum 100 requests per interval
       refillRate: 5, // Refill 5 tokens per interval
       interval: 5, // Refill every 5 seconds
-      capacity: 10, // Bucket capacity of 10 tokens
+      capacity: 100, // Bucket capacity of 10 tokens
     }),
   ],
 });

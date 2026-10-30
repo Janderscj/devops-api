@@ -7,6 +7,8 @@ import logger from '../config/logger.js';
 
 const securityMiddleware = async (req, res, next) => {
   try {
+    if (req.path.startsWith('/docs') || req.path === '/health') return next();
+
     const role = req.user?.role || 'guest';
 
     let limit;
