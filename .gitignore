@@ -1,6 +1,8 @@
 node_modules
-.env
+.env/*
+.env**
 logs
 dist
 drizzle
 coverage
+.neon_local
