@@ -2,6 +2,7 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
 import authroutes from './routes/auth.routes.js';
+import usersroutes from './routes/users.routes.js';
 import logger from '#config/logger.js';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -33,6 +34,7 @@ app.get('/api', (req, res) => {
 });
 
 app.use('/api/auth', authroutes);
+app.use('/api/users', usersroutes);
 
 // Swagger API documentation route
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
