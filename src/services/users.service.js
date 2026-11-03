@@ -44,30 +44,62 @@ export const getUserById = async (id) => {
   }
 };
 //update user by ID
-export const updateUserById = async (id, data) => {
+export const updateUserById = async (id, updates) => {
   try {
-    return await db
-      .update({
-        name: data.name,
-        email: data.email,
-        role: data.role,
+    const [existingUser] = await getUserById(id);
+    if (!existingUser) {
+      throw new Error('User not found');
+    }
+    if (updates.email && updates.email !== existingUser.email) {
+      const [emailExists] = await db
+        .select()
+        .from(users)
+        .where(eq(users.email, updates.email))
+        .limit(1);
+      if (emailExists) {
+        throw new Error('Email already in use');
+      }
+    }
+    const [updatedUser] = await db
+      .update(users)
+      .set({
+        name: updates.name,
+        email: updates.email,
+        role: updates.role,
         updated_at: new Date(),
       })
-      .from(users)
-      .where(eq(users.id, id));
+      .where(eq(users.id, id))
+      .returning({
+        id: users.id,
+        name: users.name,
+        email: users.email,
+        role: users.role,
+        createdAt: users.created_at,
+        updatedAt: users.updated_at,
+      });
+    return updatedUser;
   } catch (e) {
     logger.error(e);
     console.error(e);
-    throw new Error('Failed to update user by ID', e);
+    throw e;
   }
 };
 //delete user by ID
 export const deleteUserById = async (id) => {
   try {
-    return await db.delete().from(users).where(eq(users.id, id));
+    const [deletedUser] = await db.delete(users).where(eq(users.id, id)).returning({
+      id: users.id,
+      name: users.name,
+      email: users.email,
+      role: users.role,
+    });
+    if (!deletedUser) {
+      throw new Error('User not found');
+    }
+    return deletedUser;
   } catch (e) {
     logger.error(e);
     console.error(e);
-    throw new Error('Failed to delete user by ID', e);
+    throw e;
   }
 };

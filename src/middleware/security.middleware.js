@@ -16,22 +16,22 @@ const securityMiddleware = async (req, res, next) => {
 
     switch (role) {
       case 'admin':
-        limit = 20;
+        limit = 20000;
         message = 'Admin access exceeded.';
         break;
       case 'user':
-        limit = 10;
+        limit = 10000;
         message = 'User access exceeded.';
         break;
       default:
-        limit = 5;
+        limit = 5000;
         message = 'Guest access exceeded.';
         break;
     }
 
     const client = aj.withRule(
       slidingWindow({
-        mode: 'LIVE',
+        mode: 'DRY_RUN',
         interval: '1m',
         max: limit,
         name: `${role}-rate-limit`,

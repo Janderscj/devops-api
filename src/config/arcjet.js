@@ -19,10 +19,10 @@ const aj = arcjet({
     // Create a token bucket rate limit. Other algorithms are supported.
     slidingWindow({
       mode: 'DRY_RUN',
-      max: 100, // Maximum 100 requests per interval
-      refillRate: 5, // Refill 5 tokens per interval
+      max: 10000, // Maximum 100 requests per interval
+      refillRate: 500, // Refill 5 tokens per interval
       interval: 5, // Refill every 5 seconds
-      capacity: 100, // Bucket capacity of 10 tokens
+      capacity: 10000, // Bucket capacity of 10 tokens
     }),
   ],
 });
