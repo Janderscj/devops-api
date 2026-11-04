@@ -39,4 +39,7 @@ app.use('/api/users', usersroutes);
 // Swagger API documentation route
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
+app.use((req, res) => {
+  res.status(404).json({ status: 'Not Found', timestamp: new Date().toISOString() });
+});
 export default app;

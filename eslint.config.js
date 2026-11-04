@@ -34,6 +34,6 @@ export default [
     },
   },
   {
-    ignores: ['node_modules/**', 'dist/**', 'logs/**', 'drizzle/**', 'coverage/**'],
+    ignores: ['node_modules/**', 'dist/**', 'logs/**', 'drizzle/**', 'tests/**', 'coverage/**'],
   },
 ];
