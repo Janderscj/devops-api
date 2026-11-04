@@ -25,7 +25,7 @@ jobs:
     needs: lint
     env:
       NODE_ENV: test
-      # Placeholder values so modules that read env at import time don't crash
+      # Placeholder values
       DATABASE_URL: postgres://user:pass@localhost:5432/testdb
       ARCJET_KEY: ${{ secrets.ARCJET_KEY }}
       JWT_SECRET: test-secret
