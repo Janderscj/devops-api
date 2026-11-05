@@ -1,6 +1,14 @@
 # DevOps API
 
 ![CI](https://github.com/Janderscj/devops-api/actions/workflows/ci.yml/badge.svg)
+![Node.js](https://img.shields.io/badge/Node.js-20-339933?logo=nodedotjs&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5-000000?logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker&logoColor=white)
+![Jest](https://img.shields.io/badge/Tested_with-Jest-C21325?logo=jest&logoColor=white)
+
+![Last commit](https://img.shields.io/github/last-commit/Janderscj/devops-api)
+![License](https://img.shields.io/badge/license-ISC-blue)
 
 A Node.js REST API with user authentication and user management, containerized with Docker and tested and published through GitHub Actions.
 
